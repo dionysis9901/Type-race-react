@@ -1,0 +1,59 @@
+@import "../style/_config.scss";
+
+.welcome {
+  position: relative;
+  min-height: 100vh;
+  text-align: center;
+  .header {
+    &__tittle {
+      color: $lemon;
+    }
+  }
+
+  .main {
+    &__logo {
+      height: 90px;
+      width: 90px;
+      background-image: linear-gradient(
+        to top,
+        #2e294e,
+        #342f5a,
+        #3b3466,
+        #423a72,
+        #49407e
+      );
+      border-radius: 10px;
+      padding: 0 5px 0 5px;
+      transition: 0.4s;
+    }
+    &__logo:hover {
+      transform: scale(1.2);
+    }
+    &__paragraph {
+      margin-top: 10px;
+    }
+
+    &__form {
+      margin-bottom: 15px;
+      &__input {
+        padding: 10px;
+        background-color: rgba(229, 255, 0, 0.089);
+        border: 1px solid $lemon;
+        border-radius: 5px;
+        color: $lemon;
+        font-size: 20px;
+        text-indent: 10px;
+      }
+    }
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: $lemon;
+    &__mention {
+      color: $purple;
+    }
+  }
+}

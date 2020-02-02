@@ -2,6 +2,9 @@ import React from "react";
 import Button from "../button";
 import Game from "../game";
 
+import "./welcome.scss";
+import logo from "./speed.png";
+
 class Welcome extends React.Component {
   constructor(props) {
     super(props);
@@ -19,9 +22,12 @@ class Welcome extends React.Component {
   }
 
   render() {
-    if (this.state.isClicked) {
-      return <Game name={this.state.name} />;
+    const { name, isClicked } = this.state;
+
+    if (isClicked) {
+      return <Game name={name} />;
     }
+
     return (
       <div className="welcome">
         <div className="header">
@@ -29,8 +35,8 @@ class Welcome extends React.Component {
         </div>
 
         <div className="main">
-          <img className="main__logo" alt="logo" />
-          <p className="main__paragraph">This is a copy of type Racer Game</p>
+          <img className="main__logo" src={logo} alt="logo" />
+          <p className="main__paragraph">Type as fast as you can !</p>
           <form className="main__form">
             <input
               type="text"

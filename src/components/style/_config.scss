@@ -1,8 +1,23 @@
 //Imports
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 
+//Variables
+
+$bg: #2e294e;
+$eggshell: #f1e9da;
+$lemon: #ffd400;
+$purple: #541388;
+
+//Global
+
 html {
   padding: 0;
   margin: 0;
+  color: $eggshell;
+}
+
+body {
+ 
+  background-color: $bg;
   font-family: "Roboto", sans-serif;
 }
