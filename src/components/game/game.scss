@@ -1,0 +1,58 @@
+@import "../style/_config.scss";
+
+.game {
+  text-align: center;
+  .header {
+    &__tittle {
+      background-image: linear-gradient(
+        to right,
+        #541388,
+        #a3007b,
+        #d80463,
+        #f64d47,
+        #ff8729,
+        #ff8732,
+        #ff863a,
+        #ff8642,
+        #e05a5f,
+        #ab426d,
+        #6b3668,
+        #2e294e
+      );
+      padding: 2px;
+      font-size: 25px;
+      color: $bg;
+    }
+  }
+  .container {
+    &__textBox {
+      &__username {
+        font-size: 25px;
+        color: $lemon;
+      }
+      &__instructions {
+        font-size: 18px;
+      }
+      &__generatedText {
+        color: $lemon;
+      }
+    }
+    &__typeBox {
+      margin-bottom: 30px;
+      &__userInput {
+        width: 600px;
+        height: 140px;
+
+        font-size: 20px;
+
+        background-color: rgba(245, 224, 255, 0.568);
+        border: 1px solid rgb(0, 255, 213);
+        border-radius: 10px;
+        color: $lemon;
+      }
+    }
+    &__buttons {
+      margin-top: 20px;
+    }
+  }
+}

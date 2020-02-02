@@ -1,6 +1,7 @@
 @import "../style/_config.scss";
 
 .defaultButton {
+  display: inline-block;
   font-size: 20px;
   padding: 5px 10px 5px 10px;
   background-color: $lemon;
@@ -8,6 +9,7 @@
   border: 1px solid $eggshell;
   border-radius: 3px;
   transition: 0.7s;
+  margin: 0px 10px 0px 10px;
 }
 .defaultButton:hover {
   cursor: pointer;
