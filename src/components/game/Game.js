@@ -2,7 +2,7 @@ import React from "react";
 import Button from "../button";
 import Welcome from "../welcome";
 
-import { Text } from "../../utilities/main.js";
+import { Word } from "../../utilities/main.js";
 
 import "./game.scss";
 
@@ -12,9 +12,9 @@ class Game extends React.Component {
     this.state = {
       beginBtn: false,
       backBtn: false,
-      gameText:
+      gameWord:
         " *This will be replaced with TEXT when you press the Begin button* ",
-      userText: null
+      userWord: ""
     };
 
     this.goBack = this.goBack.bind(this);
@@ -27,16 +27,24 @@ class Game extends React.Component {
   }
 
   beginGame() {
-    this.setState({ beginBtn: true, gameText: Text.randomize() });
+    if (!this.state.beginBtn) {
+      this.setState({ beginBtn: true, gameWord: Word.randomize() });
+    }
   }
 
   manageUserInput(event) {
-    this.setState({ userText: event.target.value });
+    this.setState({ userWord: event.target.value }, () => {
+      if (this.state.userWord === this.state.gameWord) {
+        this.setState({ gameWord: Word.randomize(), userWord: "" });
+      }
+    });
   }
 
   render() {
-    const { beginBtn, backBtn, gameText } = this.state;
+    const { beginBtn, backBtn, gameWord, userWord } = this.state;
     const { name } = this.props;
+
+    console.log(userWord); //Remove It
 
     if (backBtn) {
       return <Welcome />;
@@ -49,21 +57,22 @@ class Game extends React.Component {
         </div>
 
         <div className="container">
-          <div className="container__textBox">
-            <p className="container__textBox__username">{name}</p>
-            <p className="container__textBox__instructions">
+          <div className="container__wordBox">
+            <p className="container__wordBox__username">{name}</p>
+            <p className="container__wordBox__instructions">
               Type the text you see bellow in the white area as fast as you can!
             </p>
-            <p className="container__textBox__generatedText">{gameText}</p>
+            <p className="container__wordBox__generatedText">{gameWord}</p>
           </div>
 
           <div className="container__typeBox">
-            <textarea
+            <input
               type="text"
-              placeholder="Type Here!!"
+              placeholder="Type Here"
               className="container__typeBox__userInput"
+              value={userWord}
               onChange={this.manageUserInput}
-            ></textarea>
+            ></input>
           </div>
           <div className="container__buttons">
             {" "}
